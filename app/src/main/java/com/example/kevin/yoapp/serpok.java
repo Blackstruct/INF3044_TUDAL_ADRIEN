@@ -3,6 +3,18 @@ package com.example.kevin.yoapp;
 import android.app.IntentService;
 import android.content.Intent;
 import android.content.Context;
+import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
+import android.util.StringBuilderPrinter;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * An {@link IntentService} subclass for handling asynchronous task requests in
@@ -15,12 +27,7 @@ public class serpok extends IntentService {
     // TODO: Rename actions, choose action names that describe tasks that this
     // IntentService can perform, e.g. ACTION_FETCH_NEW_ITEMS
     private static final String ACTION_FOO = "com.example.kevin.yoapp.action.FOO";
-    private static final String ACTION_BAZ = "com.example.kevin.yoapp.action.BAZ";
-
-    // TODO: Rename parameters
-    private static final String EXTRA_PARAM1 = "com.example.kevin.yoapp.extra.PARAM1";
-    private static final String EXTRA_PARAM2 = "com.example.kevin.yoapp.extra.PARAM2";
-
+    private static final String TAG="serpok";
     public serpok() {
         super("serpok");
     }
@@ -32,26 +39,9 @@ public class serpok extends IntentService {
      * @see IntentService
      */
     // TODO: Customize helper method
-    public static void startActionFoo(Context context, String param1, String param2) {
+    public static void startActionFoo(Context context) {
         Intent intent = new Intent(context, serpok.class);
         intent.setAction(ACTION_FOO);
-        intent.putExtra(EXTRA_PARAM1, param1);
-        intent.putExtra(EXTRA_PARAM2, param2);
-        context.startService(intent);
-    }
-
-    /**
-     * Starts this service to perform action Baz with the given parameters. If
-     * the service is already performing a task this action will be queued.
-     *
-     * @see IntentService
-     */
-    // TODO: Customize helper method
-    public static void startActionBaz(Context context, String param1, String param2) {
-        Intent intent = new Intent(context, serpok.class);
-        intent.setAction(ACTION_BAZ);
-        intent.putExtra(EXTRA_PARAM1, param1);
-        intent.putExtra(EXTRA_PARAM2, param2);
         context.startService(intent);
     }
 
@@ -60,13 +50,8 @@ public class serpok extends IntentService {
         if (intent != null) {
             final String action = intent.getAction();
             if (ACTION_FOO.equals(action)) {
-                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
-                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
-                handleActionFoo(param1, param2);
-            } else if (ACTION_BAZ.equals(action)) {
-                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
-                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
-                handleActionBaz(param1, param2);
+                handleActionFoo();
+                LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(pokemontrue.POKE_UPDATE));
             }
         }
     }
@@ -75,17 +60,39 @@ public class serpok extends IntentService {
      * Handle action Foo in the provided background thread with the provided
      * parameters.
      */
-    private void handleActionFoo(String param1, String param2) {
-        // TODO: Handle action Foo
-        throw new UnsupportedOperationException("Not yet implemented");
+    private void copyInputStreamToFile(InputStream in,File file){
+        try{
+            OutputStream out=new FileOutputStream(file);
+            byte[] buf=new byte[1024];
+            int len;
+            while((len=in.read(buf))>0){
+                out.write(buf,0,len);
+            }
+            out.close();
+            in.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
-    /**
-     * Handle action Baz in the provided background thread with the provided
-     * parameters.
-     */
-    private void handleActionBaz(String param1, String param2) {
-        // TODO: Handle action Baz
-        throw new UnsupportedOperationException("Not yet implemented");
+    private void handleActionFoo() {
+        Log.d(TAG,Thread.currentThread().getName());
+        URL url=null;
+        try{
+            url=new URL("https://pokeapi.co/api/v2/pokemon/1/");
+            HttpURLConnection conn=(HttpURLConnection)url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.connect();
+            if(HttpURLConnection.HTTP_OK==conn.getResponseCode()){
+                copyInputStreamToFile(conn.getInputStream(),new File(getCacheDir(),"poke.json"));
+                Log.d(TAG,"ok");
+            }
+        }catch(MalformedURLException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
+
 }

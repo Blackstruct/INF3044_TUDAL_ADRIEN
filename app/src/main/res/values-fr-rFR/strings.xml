@@ -1,2 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Bouton parlant</string>
+    <string name="click">Biere</string>
+    <string name= "map">Map</string>
+    <string name="quefaire">Que faire?</string>
+    <string name="toast">Toast</string>
+    <string name="msg">Je suis un Toast!</string>
+    <string name="city">Ville</string>
+    <string name="search">Rechercher</string>
+    <string name="touch">Frappe moi</string>
+    <string name="frap0">aie</string>
+    <string name="frap1">arrete</string>
+    <string name="frap2">ca fait mal</string>
+    <string name="frap3">tu veux me tuer</string>
+    <string name="beer">Hmm, Bieres!!!</string>
+    <string name="disbeer">Redonnez moi ma biere!!!</string>
+    <string name="voyage">On part a voyager?</string>
+    <string name="voyagebyby">Bon voyage</string>
+    <string name="dlc">Nom en francais en DLC</string>
+    <string name="nom">id</string>
+</resources>

@@ -10,4 +10,26 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.kevin.yoapp.Main2Activity">
 
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/city"
+        android:ems="10"
+        android:layout_marginTop="67dp"
+        android:id="@+id/city"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:onClick="search_press"
+        android:layout_below="@+id/city"
+        android:layout_alignRight="@+id/city"
+        android:layout_alignEnd="@+id/city"/>
+
 </RelativeLayout>
