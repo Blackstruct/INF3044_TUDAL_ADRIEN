@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Yoapp</string>
+    <string name="click">Beer</string>
+    <string name="map">Map</string>
+    <string name="quefaire">Make what you want</string>
+    <string name="toast">Toast</string>
+    <string name="msg">I am a toast!</string>
+    <string name="city">City</string>
+    <string name="search">Search</string>
+    <string name="touch">Hit me</string>
+    <string name="frap0">aie</string>
+    <string name="frap1">stop</string>
+    <string name="frap2">it is hurt</string>
+    <string name="frap3">you want kill me</string>
+    <string name="title_activity_pokemon">pokemon</string>
+    <string name="beer">Hmm, Beers!!!</string>
+    <string name="disbeer">give me a beer!!!</string>
+    <string name="poke">POOOKEEEMOOOON!!</string>
+    <string name="voyage">We go on a trip?</string>
+    <string name="voyagebyby">Good trip</string>
+    <string name="dlc"></string>
+    <string name="nom">id</string>
+</resources>
