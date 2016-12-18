@@ -23,7 +23,7 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:text="@string/click"
+        android:text="@string/beer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button"
@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonpoke"
-        android:text="pokemon"
+        android:text="@string/pokemon"
         android:layout_marginTop="13dp"
         android:layout_below="@+id/button"
         android:layout_alignParentLeft="true"
@@ -78,11 +78,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonmap"
-        android:text="MAP"
+        android:text="@string/map"
         android:layout_marginTop="13dp"
         android:layout_below="@+id/button"
         android:layout_toRightOf="@+id/buttonpoke"
         android:layout_toEndOf="@+id/buttonpoke"
         android:onClick="press_map"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialog"
+        android:text="@string/fav_button"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/button"
+        android:layout_toRightOf="@+id/buttonmap"
+        android:layout_toEndOf="@+id/buttonmap"
+        android:onClick="showColorDialog"/>
+
+
 </RelativeLayout>
+
+

@@ -3,6 +3,7 @@
     <string name="app_name">Bouton parlant</string>
     <string name="click">Biere</string>
     <string name= "map">Map</string>
+    <string name="pokemon">Pokémon</string>
     <string name="quefaire">Que faire?</string>
     <string name="toast">Toast</string>
     <string name="msg">Je suis un Toast!</string>
@@ -17,6 +18,26 @@
     <string name="disbeer">Redonnez moi ma biere!!!</string>
     <string name="voyage">On part a voyager?</string>
     <string name="voyagebyby">Bon voyage</string>
-    <string name="dlc">Nom en francais en DLC</string>
+    <string name="dlc">Contenu téléchargeable</string>
     <string name="nom">id</string>
+    <string name="quit_dial">Je connais ta couleur préférée.</string>
+    <string name="blue">Bleue</string>
+    <string name="green">Verte</string>
+    <string name="yellow">Jaune</string>
+    <string name="red">Rouge</string>
+    <string name="orange">Orange</string>
+    <string name="purple">Violet</string>
+    <string name="beige">Beige</string>
+    <string name="black">Noir</string>
+    <string name="brown">Marron</string>
+    <string name="golden">Doré</string>
+    <string name="mauve">Mauve</string>
+    <string name="navy_blue">Bleu marine</string>
+    <string name="pink">Rose</string>
+    <string name="silver">Argent</string>
+    <string name="turquoise">Turquoise</string>
+    <string name="white">Blanc</string>
+    <string name="grey">Gris</string>
+    <string name="fav_button">Ma couleur préférée</string>
+    <string name="ok">OK</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.kevin.yoapp;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -19,6 +20,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -35,6 +38,12 @@ import java.io.InputStream;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    private AutoCompleteTextView complete = null;
+
+    // Notre liste de mots que connaîtra l'AutoCompleteTextView
+
+    Dialog dial = null;
+
     private static final String TAG="MainAct";
     private DatePickerDialog dpd=null;
     public   RecyclerView rvi=null;
@@ -50,11 +59,11 @@ public class MainActivity extends AppCompatActivity {
 
         private JSONArray biere=null;
 
-        public BiersAdapter(JSONArray beer){
+        private BiersAdapter(JSONArray beer){
             this.biere=beer;
         }
 
-        public void setNewBiere(){
+        private void setNewBiere(){
             this.biere=getBiersFromFile();
             notifyDataSetChanged();
             Log.d(TAG, String.valueOf(getItemCount()));
@@ -64,8 +73,7 @@ public class MainActivity extends AppCompatActivity {
         public BierHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater lf=LayoutInflater.from(parent.getContext());
             View vvvvvvvvvvvvv=lf.inflate(R.layout.rv_biere_element,parent,false);
-            BierHolder bieeeeeeer=new BierHolder(vvvvvvvvvvvvv);
-            return bieeeeeeer;
+            return new BierHolder(vvvvvvvvvvvvv);
         }
 
         @Override
@@ -86,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
         public class BierHolder extends RecyclerView.ViewHolder{
             public  TextView name;
-            public BierHolder(View itemView) {
+            private BierHolder(View itemView) {
                 super(itemView);
                 name=(TextView)itemView.findViewById(R.id.rv_biere_element_name);
             }
@@ -109,6 +117,50 @@ public class MainActivity extends AppCompatActivity {
         rvi=(RecyclerView)findViewById(R.id.rv_biere);
         rvi.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         rvi.setAdapter(new BiersAdapter(getBiersFromFile()));
+
+        /* Dialog couleur */
+        dial = new Dialog(this);
+        dial.setContentView(R.layout.color_dialog);
+        Button okButton = (Button) dial.findViewById(R.id.ok_button);
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // prendre la couleur préférée ?
+                Toast.makeText(getApplicationContext(),getString(R.string.quit_dial),Toast.LENGTH_LONG).show();
+                dial.dismiss();
+            }
+        });
+    }
+
+    public void showColorDialog(View v)
+    {
+        Context context = MainActivity.this;
+        String[] COULEUR = new String[]{
+                context.getString(R.string.blue),
+                context.getString(R.string.green),
+                context.getString(R.string.yellow),
+                context.getString(R.string.red),
+                context.getString(R.string.purple),
+                context.getString(R.string.beige),
+                context.getString(R.string.black),
+                context.getString(R.string.brown),
+                context.getString(R.string.golden),
+                context.getString(R.string.mauve),
+                context.getString(R.string.navy_blue),
+                context.getString(R.string.pink),
+                context.getString(R.string.silver),
+                context.getString(R.string.turquoise),
+                context.getString(R.string.white),
+                context.getString(R.string.grey),
+                context.getString(R.string.orange)
+        };
+
+        complete = (AutoCompleteTextView) dial.findViewById(R.id.complete);
+        complete.setThreshold(1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, COULEUR);
+        complete.setAdapter(adapter);
+
+        dial.show();
     }
 
     public void notificatoin_test(){

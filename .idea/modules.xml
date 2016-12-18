@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Yoapp.iml" filepath="$PROJECT_DIR$/Yoapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/INF3044_TUDAL_ADRIEN.iml" filepath="$PROJECT_DIR$/INF3044_TUDAL_ADRIEN.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
