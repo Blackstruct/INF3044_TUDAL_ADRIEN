@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.kevin.yoapp.pokemontrue">
+    tools:context="com.example.kevin.yoapp.PokemonTrue">
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/nom"
+        android:hint="@string/nom"
         android:ems="10"
         android:layout_marginTop="13dp"
         android:id="@+id/aspokname"
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/button2"
         android:layout_marginTop="13dp"
-        android:onClick="ask_press"
+        android:onClick="pressSearchPkmBtn"
         android:layout_below="@+id/aspokname"
         android:layout_alignRight="@+id/aspokname"
         android:layout_alignEnd="@+id/aspokname"/>

@@ -16,7 +16,7 @@
     <string name="frap3">tu veux me tuer</string>
     <string name="beer">Hmm, Bieres!!!</string>
     <string name="appbeer">bieres</string>
-    <string name="whopoke">Quel est ce pokemon?</string>
+    <string name="whopoke">Quel est ce Pokémon ?</string>
     <string name="id">id entre 1 et 721</string>
     <string name="disbeer">Redonnez moi ma biere!!!</string>
     <string name="voyage">On part a voyager?</string>
@@ -43,4 +43,6 @@
     <string name="grey">Gris</string>
     <string name="fav_button">Ma couleur préférée</string>
     <string name="ok">OK</string>
+    <string name="end_dl">Téléchargement terminé</string>
+    <string name="color_hint">Entrez votre couleur préférée</string>
 </resources>

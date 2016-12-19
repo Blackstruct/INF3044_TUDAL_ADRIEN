@@ -7,9 +7,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.Uri;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,8 +37,6 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
     private AutoCompleteTextView complete = null;
 
-    // Notre liste de mots que connaîtra l'AutoCompleteTextView
-
     Dialog dial = null;
 
     private static final String TAG="MainAct";
@@ -50,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String BIERS_UPDATE="com.example.kevin.MainActivity.BIERS_UPDATE";
     public class BierUpdate extends BroadcastReceiver{
         public void onReceive(Context context, Intent intent){
-            notificatoin_test();
+            notifBeerDl();
             BiersAdapter a=(BiersAdapter)rvi.getAdapter();
             a.setNewBiere();
         }
@@ -125,17 +120,16 @@ public class MainActivity extends AppCompatActivity {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // prendre la couleur préférée ?
                 Toast.makeText(getApplicationContext(),getString(R.string.quit_dial),Toast.LENGTH_LONG).show();
                 dial.dismiss();
             }
         });
     }
 
-    public void showColorDialog(View v)
+    public void pressFavColorBtn(View v)
     {
         Context context = MainActivity.this;
-        String[] COULEUR = new String[]{
+        String[] colorList = new String[]{
                 context.getString(R.string.blue),
                 context.getString(R.string.green),
                 context.getString(R.string.yellow),
@@ -157,23 +151,21 @@ public class MainActivity extends AppCompatActivity {
 
         complete = (AutoCompleteTextView) dial.findViewById(R.id.complete);
         complete.setThreshold(1);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, COULEUR);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, colorList);
         complete.setAdapter(adapter);
 
         dial.show();
     }
 
-    public void notificatoin_test(){
+    public void notifBeerDl(){
         NotificationCompat.Builder po= new NotificationCompat.Builder(this);
-        po.setSmallIcon(R.mipmap.ic_launcher).setContentTitle("yolo").setContentText("telechargement fini");
+        po.setSmallIcon(R.mipmap.ic_launcher).setContentTitle("beer.json").setContentText(getString(R.string.end_dl));
 
         NotificationManager pl=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         pl.notify(153, po.build());
     }
 
-    public void btn_press(View v){
-       // notificatoin_test();
-        //dpd.show();
+    public void pressBeerBtn(View v){
         if(rvi.getVisibility()==View.INVISIBLE) {
             Yoservice.startActionFoo(this);
             rvi.setVisibility(View.VISIBLE);
@@ -184,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void frap_touch(View v){
+    public void pressHitBtn(View v){
         String mot[]=new String[4];
         mot[0]=getString(R.string.frap0);
         mot[1]=getString(R.string.frap1);
@@ -194,18 +186,18 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),mot[rand.nextInt(4)],Toast.LENGTH_LONG).show();
     }
 
-    public void press_toast(View v){
+    public void pressToastBtn(View v){
         Toast.makeText(getApplicationContext(),getString(R.string.msg),Toast.LENGTH_LONG).show();
     }
 
-    public void press_poke(View v){
+    public void pressPkmBtn(View v){
         Toast.makeText(getApplicationContext(),getString(R.string.poke),Toast.LENGTH_LONG).show();
-        startActivity(new Intent(this,pokemontrue.class));
+        startActivity(new Intent(this,PokemonTrue.class));
     }
 
-    public void press_map(View v){
+    public void pressMapBtn(View v){
         Toast.makeText(getApplicationContext(),getString(R.string.voyage),Toast.LENGTH_LONG).show();
-        startActivity(new Intent(this, Main2Activity.class));
+        startActivity(new Intent(this, MapActivity.class));
     }
 
     public JSONArray getBiersFromFile(){

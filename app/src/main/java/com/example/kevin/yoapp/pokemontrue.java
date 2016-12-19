@@ -33,21 +33,20 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class pokemontrue extends AppCompatActivity  {
+public class PokemonTrue extends AppCompatActivity  {
 
 
     public static final String POKE_UPDATE = "com.example.kevin.MainActivity.POKE_UPDATE";
     public String id;
     public class PokeUpdate extends BroadcastReceiver implements LoadImageTask.Listener {
         public void onReceive(Context context, Intent intent) {
-            notificatoin_test();
+            notifPkmDl();
             TextView pokname = (TextView) findViewById(R.id.pokename);
             ImageView imdl = (ImageView) findViewById(R.id.imagepoke);
             JSONObject po = getBiersFromFile();
             try {
                 pokname.setText(po.getString("name"));
                 new LoadImageTask(this).execute(po.getJSONObject("sprites").getString("front_default"));
-                //imdl.setImageBitmap(getBitmapFromURL(po.getJSONObject("sprites").getString("front_default")));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -97,15 +96,15 @@ public class pokemontrue extends AppCompatActivity  {
         }
     }
 
-    public void notificatoin_test() {
+    public void notifPkmDl() {
         NotificationCompat.Builder po = new NotificationCompat.Builder(this);
-        po.setSmallIcon(R.mipmap.ic_launcher).setContentTitle("yolo").setContentText("telechargement fini");
+        po.setSmallIcon(R.mipmap.ic_launcher).setContentTitle("poke.json").setContentText(getString(R.string.end_dl));
 
         NotificationManager pl = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         pl.notify(153, po.build());
     }
 
-    public void ask_press(View v) {
+    public void pressSearchPkmBtn(View v) {
         EditText rectext=(EditText) findViewById(R.id.aspokname);
         serpok.ids=rectext.getText().toString();
         Toast.makeText(getApplicationContext(),getString(R.string.whopoke),Toast.LENGTH_LONG).show();
@@ -119,8 +118,7 @@ public class pokemontrue extends AppCompatActivity  {
             conn.setRequestMethod("GET");
             conn.connect();
             InputStream input = conn.getInputStream();
-            Bitmap myBitmap = BitmapFactory.decodeStream(input);
-            return myBitmap;
+            return BitmapFactory.decodeStream(input);
 
         } catch (Exception e) {
             e.printStackTrace();

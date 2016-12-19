@@ -52,7 +52,7 @@ public class serpok extends IntentService {
             final String action = intent.getAction();
             if (ACTION_FOO.equals(action)) {
                 handleActionFoo();
-                LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(pokemontrue.POKE_UPDATE));
+                LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(PokemonTrue.POKE_UPDATE));
             }
         }
     }
@@ -88,9 +88,8 @@ public class serpok extends IntentService {
                 copyInputStreamToFile(conn.getInputStream(),new File(getCacheDir(),"poke.json"));
                 Log.d(TAG,"ok");
             }
-        }catch(MalformedURLException e){
-            e.printStackTrace();
-        }catch (IOException e){
+        }catch(Exception e)
+        {
             e.printStackTrace();
         }
 

@@ -8,15 +8,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Main2Activity extends AppCompatActivity {
+public class MapActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_map);
     }
 
-    public void search_press(View v){
+    public void pressSearchBtn(View v){
         EditText rectext=(EditText) findViewById(R.id.city);
         String in=rectext.getText().toString();
         Toast.makeText(getApplicationContext(),getString(R.string.voyagebyby),Toast.LENGTH_LONG).show();

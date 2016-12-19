@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity" />
+        <activity android:name=".MapActivity" />
 
         <service
             android:name=".Yoservice"
@@ -27,7 +27,7 @@
             android:name=".pokemon"
             android:label="@string/title_activity_pokemon"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".pokemontrue" />
+        <activity android:name=".PokemonTrue" />
 
         <service
             android:name=".serpok"

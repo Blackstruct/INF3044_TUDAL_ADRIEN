@@ -16,7 +16,7 @@
     <string name="title_activity_pokemon">pokemon</string>
     <string name="beer">Hmm, Beers!!!</string>
     <string name="appbeer">beers</string>
-    <string name="whopoke">Who is that pokemon?</string>
+    <string name="whopoke">Who is that Pokémon?</string>
     <string name="id">id between 1 and 721</string>
     <string name="disbeer">give me a beer!!!</string>
     <string name="poke">POOOKEEEMOOOON!!</string>
@@ -32,7 +32,7 @@
     <string name="orange">Orange</string>
     <string name="purple">Purple</string>
     <string name="beige">Beige</string>
-    <string name="black">Noir</string>
+    <string name="black">Black</string>
     <string name="brown">Brown</string>
     <string name="golden">Golden</string>
     <string name="mauve">Mauve</string>
@@ -44,4 +44,6 @@
     <string name="grey">Grey</string>
     <string name="fav_button">My favorite color</string>
     <string name="ok">OK</string>
+    <string name="end_dl">Download done</string>
+    <string name="color_hint">Enter your favorite color</string>
 </resources>
