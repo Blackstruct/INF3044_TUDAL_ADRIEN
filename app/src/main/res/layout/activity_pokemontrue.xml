@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_pokemontrue"
     android:layout_width="match_parent"
@@ -16,7 +17,7 @@
         android:id="@+id/pokename"
         android:text=""
         android:visibility="invisible"
-        android:layout_below="@+id/aspokname"
+        android:layout_below="@+id/imagepoke"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -44,7 +45,17 @@
         android:id="@+id/button2"
         android:layout_marginTop="13dp"
         android:onClick="ask_press"
+        android:layout_below="@+id/aspokname"
         android:layout_alignRight="@+id/aspokname"
         android:layout_alignEnd="@+id/aspokname"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:visibility="invisible"
+        android:id="@+id/imagepoke"
+        android:src="@mipmap/ic_launcher"
+        />
 
 </RelativeLayout>

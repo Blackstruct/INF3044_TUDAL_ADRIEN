@@ -15,11 +15,13 @@
     <string name="frap3">you want kill me</string>
     <string name="title_activity_pokemon">pokemon</string>
     <string name="beer">Hmm, Beers!!!</string>
+    <string name="appbeer">beers</string>
+    <string name="whopoke">Who is that pokemon?</string>
     <string name="disbeer">give me a beer!!!</string>
     <string name="poke">POOOKEEEMOOOON!!</string>
     <string name="voyage">We go on a trip?</string>
     <string name="voyagebyby">Good trip</string>
-    <string name="dlc">Downloadable content</string>
+    <string name="dlc"> </string>
     <string name="nom">id</string>
     <string name="quit_dial">I now know your favorite color.</string>
     <string name="blue">Blue</string>

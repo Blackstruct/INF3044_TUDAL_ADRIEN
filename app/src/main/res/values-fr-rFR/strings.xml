@@ -15,10 +15,12 @@
     <string name="frap2">ca fait mal</string>
     <string name="frap3">tu veux me tuer</string>
     <string name="beer">Hmm, Bieres!!!</string>
+    <string name="appbeer">bieres</string>
+    <string name="whopoke">Quel est ce pokemon?</string>
     <string name="disbeer">Redonnez moi ma biere!!!</string>
     <string name="voyage">On part a voyager?</string>
     <string name="voyagebyby">Bon voyage</string>
-    <string name="dlc">Contenu téléchargeable</string>
+    <string name="dlc">Nom en francais en DLC</string>
     <string name="nom">id</string>
     <string name="quit_dial">Je connais ta couleur préférée.</string>
     <string name="blue">Bleue</string>

@@ -28,6 +28,7 @@ public class serpok extends IntentService {
     // IntentService can perform, e.g. ACTION_FETCH_NEW_ITEMS
     private static final String ACTION_FOO = "com.example.kevin.yoapp.action.FOO";
     private static final String TAG="serpok";
+    public static String ids="1";
     public serpok() {
         super("serpok");
     }
@@ -79,7 +80,7 @@ public class serpok extends IntentService {
         Log.d(TAG,Thread.currentThread().getName());
         URL url=null;
         try{
-            url=new URL("https://pokeapi.co/api/v2/pokemon/1/");
+            url=new URL("https://pokeapi.co/api/v2/pokemon-form/"+ids+"/");
             HttpURLConnection conn=(HttpURLConnection)url.openConnection();
             conn.setRequestMethod("GET");
             conn.connect();
