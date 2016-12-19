@@ -14,10 +14,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/id"
+        android:id="@+id/idtetx"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/pokename"
         android:text=""
         android:visibility="invisible"
         android:layout_below="@+id/imagepoke"
+        android:layout_centerHorizontal="true"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -26,6 +36,7 @@
         android:text="@string/dlc"
         android:visibility="invisible"
         android:layout_below="@+id/pokename"
+        android:layout_centerHorizontal="true"
         />
     <EditText
         android:layout_width="wrap_content"
@@ -35,8 +46,8 @@
         android:ems="10"
         android:layout_marginTop="13dp"
         android:id="@+id/aspokname"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/idtetx"/>
 
     <Button
         android:text="@string/search"
@@ -55,7 +66,7 @@
         android:layout_below="@+id/button2"
         android:visibility="invisible"
         android:id="@+id/imagepoke"
-        android:src="@mipmap/ic_launcher"
+        android:layout_centerHorizontal="true"
         />
 
 </RelativeLayout>
